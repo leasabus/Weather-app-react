@@ -39,6 +39,8 @@ export const App = (initialForm = {}) => {
     <>
 
 
+
+
       <div className=' w-100% h-100'>
 
         {
@@ -46,27 +48,30 @@ export const App = (initialForm = {}) => {
           weather && (
 
             <div className="mx-auto
-      max-w-screen-md
+      max-w-xl
       mt-8 py-5 px-32
       bg-gradient-to-br
       from-slate-700
       h-fit shadow-xl shadow-black
       rounded-lg opacity-95
-      animate__animated animate__fadeIn" >
+      animate__animated animate__fadeIn
+      container " >
 
 
               {/* <TopButtons  > </TopButtons> */}
 
               <div className='flex flex-row justify-center my-6 '>
                 <div className='flex flex-row w-3/4 items-center justify-center space-x-4'>
+                  <div className='input-search'>
+                    <input
+                      name='getcity'
+                      onKeyDown={onHandleChange}
+                      type="text"
+                      placeholder="Search for a city..."
+                      className='text-md font-medium px-8 py-2 m-4 w-max shadow-xl focus:outline-none capitalize placeholder:lowercase rounded bg-slate-200 '
 
-                  <input
-                    name='getcity'
-                    onKeyDown={onHandleChange}
-                    type="text"
-                    placeholder="Search for a city..."
-                    className='text-md font-medium p-2 w-full shadow-xl focus:outline-none capitalize placeholder:lowercase rounded bg-slate-200'
-                  />
+                    />
+                  </div>
                   <button type="submit">
 
                     <UilSearch size={30}
