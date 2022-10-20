@@ -55,6 +55,7 @@ export const App = (initialForm = {}) => {
       h-fit shadow-xl shadow-black
       rounded-lg opacity-95
       animate__animated animate__fadeIn
+      max-h-full
       container " >
 
 
