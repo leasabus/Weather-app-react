@@ -39,7 +39,7 @@ export const App = (initialForm = {}) => {
   const onHandleChange = (event) => {
     if (event.keyCode === 13) {
       setCity(event.currentTarget.value)
-      event.currentTarget.blur();
+
 
     }
   }
