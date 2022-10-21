@@ -3,7 +3,9 @@ import { TimeAndLocation } from './components/TimeAndLocation'
 import { TemperatureDetails } from './components/TemperatureDetails'
 import { useEffect, useState } from 'react'
 import { getWeatherData } from './api/weatherApi';
-import { UilSearch } from '@iconscout/react-unicons'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -16,10 +18,19 @@ export const App = (initialForm = {}) => {
 
 
   useEffect(() => {
+    const message = city ? city : "current location";
+    toast.info("Searching results for " + message, {
+      autoClose: 1000,
+    })
     const fetchWeatherData = async () => {
       const data = await getWeatherData(city)
       setWeather(data)
+      toast.success(
+        `Sucessfully data founded for ${city}`
+      )
+
     }
+
     fetchWeatherData();
   }, [city])
 
@@ -33,13 +44,8 @@ export const App = (initialForm = {}) => {
     }
   }
 
-
-
   return (
     <>
-
-
-
 
       <div className=' w-100% h-100'>
 
@@ -69,17 +75,18 @@ export const App = (initialForm = {}) => {
                       onKeyDown={onHandleChange}
                       type="text"
                       placeholder="Search for a city..."
-                      className='text-md font-medium px-8 py-2 m-4 w-max shadow-xl focus:outline-none capitalize placeholder:lowercase rounded bg-slate-200 '
+                      className='text-md font-medium px-4  w-80 py-2 m-4  shadow-xl focus:outline-none capitalize placeholder:lowercase rounded bg-slate-200 '
 
                     />
                   </div>
-                  <button type="submit">
 
-                    <UilSearch size={30}
+
+
+                  {/* <UilSearch size={30}
                       className='text-cyan-50 cursor-pointer transition ease-out hover:scale-125'
 
                     ></UilSearch>
-                  </button>
+                  </button> */}
 
 
                 </div>
@@ -104,6 +111,7 @@ export const App = (initialForm = {}) => {
 
         }
       </div>
+      <ToastContainer autoClose={3000} theme='colored' newestOnTop={true} />
 
     </>
 

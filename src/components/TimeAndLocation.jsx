@@ -10,8 +10,8 @@ export const TimeAndLocation = ({ name, country }) => {
                 <p className='text-white font-extralight text-xl date-p '>{date}   </p>
             </div>
 
-            <div className='flex justify-center items-center my-3'>
-                <h3 className='text-white font-medium text-3xl name-country'>{name}{country}</h3>
+            <div className='flex justify-center text-center items-center my-3'>
+                <h3 className='text-white font-medium text-3xl name-country animate__animated animate__fadeInDown'>{name}{country}</h3>
             </div>
         </div>
     )
